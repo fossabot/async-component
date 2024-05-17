@@ -8,6 +8,7 @@ This is an add-on component that, when installed, will enable your Knative servi
 ## Architecture
 
 ![diagram](./README-images/async-all-components.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fknative-extensions%2Fasync-component.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fknative-extensions%2Fasync-component?ref=badge_shield)
 
 When Knative Serving creates a service, one of the artifacts created is a KIngress for the service. The yaml for the KIngress will contain an annotation which is read by the networking controller (net-istio, net-countour, etc.). The ingress controller in our asynchronous component looks for KIngresses with the `async.ingress.networking.knative.dev` annotation. The ingress controller will then create a KIngress for Istio (annotated with `istio.ingress.networking.knative.dev`), which will be picked up by the net component (net-istio in the above case) to create the required istio components, such as a virtual service, to route asynchronous service calls appropriately. If the service is an always asynchronous service, then all requests are routed to the producer component.
 
@@ -231,3 +232,7 @@ Performance testing information can be found in [the performance test README](te
     ```
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fknative-extensions%2Fasync-component.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fknative-extensions%2Fasync-component?ref=badge_large)
